@@ -10,26 +10,36 @@ package employee2;
  * @author LENY
  */
 public class manager extends Employee2 {
-
-    private double tunjangan;
+    private double gajimeneger;
+    private double tunjangan,tunjanganjabatan,total,totalgaji;
     static final int gaji = 5000000;
     public manager(String nama, String idkerja, String jabatan, String Status, String istri, int anak, int tasuk) {
         super(nama, idkerja, jabatan, Status, istri, anak, tasuk);
     }
 
     public double tunjanganjabatan() {
-        tunjangan = (double) (0.1 * super.gettotalgaji() );
-        System.out.println("tunjangan jabatan adalah : " + tunjangan);
-        return 0;
+        tunjanganjabatan =0.1*gaji+bonus()+tunjangan();
+        return tunjanganjabatan;
         
     }
+    public double total(){
+        total=gaji*(bonus()+tunjangan());
+        return total;
+    }
+     public double gettotalgaji() {
+        totalgaji = gaji+istri()+anak();
+        return totalgaji;
+    }
+     public double getgajiMeneger(){
+        double gajimeneger = totalgaji+total+tunjanganjabatan;
+        return gajimeneger;
+     }
 
-    public String tampil2() {
-        super.tampil();
-        tunjanganjabatan();
-        int totalgaji= (int) (super.gettotalgaji()+tunjanganjabatan());
-        System.out.println("Total Gaji Manager : "+totalgaji);
-        return null;
+    public void tampil2() {
+        System.out.println("        Data        ");
+        System.out.println("Tunjangan jabatan:"+tunjanganjabatan());
+        System.out.println("gaji pokok                  : "+gaji);
+        System.out.println("gaji total                  : "+getgajiMeneger());
     }
 
 }

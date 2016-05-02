@@ -9,30 +9,34 @@ package employee2;
  *
  * @author LENY
  */
+import java.util.*;
 public class pegawaitidaktetap extends Employee2 {
-
-    private int gajilembur;
+Scanner a=new Scanner(System.in);
+    private int gajilembur,totalgaji;
     private int jamkerja;
+    private double gajiPTT;
 
     public pegawaitidaktetap(String nama, String idkerja, String jabatan, String Status, String istri, int anak, int tasuk) {
         super(nama, idkerja, jabatan, Status, istri, anak, tasuk);
     }
 
     public int gajilembur() {
+     System.out.print("jam kerja = ");
+        int jamkerja = a.nextInt();
         if (jamkerja > 10) {
             gajilembur = jamkerja * 10000;
-            System.out.println("gaji lembur = " + gajilembur);
         } else {
-            int gajilembur1 = gaji;
-            System.out.println("gaji lembur = " + gajilembur1);
+            System.out.println("Gaji total:"+gaji);
         }
-        return 0;
+        return gajilembur;
     }
-
-    public String ampil4() {
-        super.tampil();
-        gajilembur();
-        int totalgaji= (int) (super.gettotalgaji()+gajilembur());
-        return null;
+    public double getgajiPTT(){
+        gajiPTT=gajilembur()+gaji;
+        return gajiPTT;
+    }
+    public void tampil4() {
+        System.out.println("        Data        ");
+        System.out.println("Gaji :"+gaji);
+        System.out.println("Gaji Total :"+getgajiPTT());
     }
 }

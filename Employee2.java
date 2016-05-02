@@ -20,8 +20,9 @@ public class Employee2 {
     private String Status;
     private int anak;
     private int tasuk;
-    private int totalgaji;
-    static final int gaji = 5000000;
+    private int total;
+    private double totalgaji,bonus,tunjangan;
+    int gaji = 5000000;
 
     public Employee2(String nama, String idkerja, String jabatan, String Status, String istri, int anak, int tasuk) {
         this.nama = nama;
@@ -33,36 +34,46 @@ public class Employee2 {
         this.tasuk = tasuk;
 
     }
+    public int getgaji(){
+        return gaji=5000000;
+    }
 
     public double masakerja() {
         int masakerja=2016-tasuk;
-        double bonus=0;
-        double tunjangan=0;
+        return masakerja;
+    }
+    public double bonus(){
+        int masakerja=2016-tasuk;
         if (masakerja>10){
-            bonus= 0.1*gaji*masakerja;
-            tunjangan=  0.1*gaji*masakerja;
-            System.out.println("bonus masa kerja        : "+bonus);
-            System.out.println("tunjangan masa kerja    : "+tunjangan);
+            bonus= 0.1*(gaji*masakerja);
+        }else if(masakerja>=6&&masakerja<=10){
+            bonus=0.05*(gaji*masakerja);
+        
+           
+            
         }
-        else if(masakerja>=6&&masakerja<=10){
-            bonus=0.05*gaji*masakerja;
-            System.out.println("bonus masa kerja        : "+bonus);
-        }
-        return tunjangan+bonus;
-
+        return bonus;
+    }
+        public double tunjangan(){
+             int masakerja=2016-tasuk;
+            if (masakerja>10){
+                tunjangan=0;
+            }else if(masakerja>=6&&masakerja<=10){
+                 tunjangan=  0.1*(gaji*masakerja);
+            }
+            return tunjangan;
     }
 
     public double anak() {
         double tunjangananak;
         if (anak >= 3) {
             tunjangananak = 0.45 * gaji;
-            System.out.println("tunjangan anak adalah   : " + tunjangananak);
         } else if (anak == 2) {
             tunjangananak = 0.30 * gaji;
-            System.out.println("tunjangan anak adalah   : " + tunjangananak);
+   
         } else {
             tunjangananak = 0.15 * gaji;
-            System.out.println("tunjangan anak adalah   : " + tunjangananak);
+    
         }
         return tunjangananak;
     }
@@ -71,24 +82,16 @@ public class Employee2 {
         double tunjanganistri;
         if (istri.equalsIgnoreCase("ada")) {
             tunjanganistri = 0.15 * gaji;
-            System.out.println("tunjangan istri adalah  : " + tunjanganistri);
         } else {
             tunjanganistri = 0;
-            System.out.println("tunjangan istri adalah  : " + tunjanganistri);
         }
         return tunjanganistri;
+    
     }
-
-    public double gettotalgaji() {
-        int gajitotal = (int) (istri() + anak() + masakerja() + gaji);
-        return 0;
+    public void tampil(){
+        System.out.println("DATA");
+        System.out.println("Tunjangan istri:"+istri());
+        System.out.println("Tunjangan anak :"+anak());
+        System.out.println("Tunjangan Masa kerja :"+bonus()+tunjangan());
     }
-
-    public void tampil() {
-        double gajitot = istri() + anak() + masakerja() + gaji;
-
-        System.out.println("gaji total                  : " + gajitot);
-
-    }
-
 }

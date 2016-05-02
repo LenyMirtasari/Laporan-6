@@ -34,25 +34,21 @@ public class mainemployee2 {
             System.out.print("Tahun masuk           : ");
             int tasuk = a.nextInt();
             System.out.println("===============================================================");
-            if (jabatan.equalsIgnoreCase("pns")) {
-                Employee2 b = new Employee2(nama, idkerja, jabatan, status, istri, anak, tasuk);
-                b.tampil();
-
-            }
             if (status.equalsIgnoreCase("manager")) {
                 manager c = new manager(nama, idkerja, jabatan, status, istri, anak, tasuk);
+                c.tampil();
                 c.tampil2();
             }
             if (status.equalsIgnoreCase("PT")) {
                 pegawaitetap d = new pegawaitetap(nama, idkerja, jabatan, status, istri, anak, tasuk);
+                d.tampil();
                 d.tampil3();
             }
-            if (status.equalsIgnoreCase("pegawai tidak tetap")) {
-                pegawaitidaktetap e = new pegawaitidaktetap(nama, idkerja, jabatan, status, istri, anak, tasuk);
-                System.out.print("jam kerja = ");
-                int jamkerja = a.nextInt();
-                e.ampil4();
+            if (status.equalsIgnoreCase("PTT")) {
+                pegawaitidaktetap e = new pegawaitidaktetap(nama, idkerja, jabatan, status, istri, anak, tasuk);               
+                e.tampil4();
             }
         } while (pil.equalsIgnoreCase("t"));
     }
+    
 }
